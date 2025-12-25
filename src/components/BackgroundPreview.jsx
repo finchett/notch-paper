@@ -90,6 +90,7 @@ const BackgroundPreview = ({ processedImage, processing }) => {
     >
       <img
         src={processedImage}
+        alt="Processed wallpaper preview"
         className={`processed-image ${isDragging ? "dragging" : ""}`}
         onMouseDown={handleMouseDown}
         style={{
