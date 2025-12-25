@@ -19,9 +19,8 @@ body {
     min-width: 650px;
     text-align: center;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 20px;
+    right: 20px;
     z-index: 2;
     margin: 0;
     cursor: grab;
