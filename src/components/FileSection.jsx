@@ -73,7 +73,7 @@ const FileSection = ({
       </div>
 
       <button onClick={downloadImage} disabled={!processedImage}>
-        Download
+        Export
       </button>
     </div>
   );

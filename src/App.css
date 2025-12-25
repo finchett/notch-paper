@@ -25,6 +25,9 @@ body {
     margin: 0;
     cursor: grab;
     user-select: none;
+    transition:
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
 .controls-row {
@@ -423,10 +426,12 @@ input[type="range"] {
     will-change: transform;
     cursor: grab;
     user-select: none;
+    transition: all 0.2s ease;
 }
 
 .processed-image.dragging {
     cursor: grabbing;
+    transition: all 0.01s ease;
 }
 
 .advanced-section {
@@ -517,4 +522,19 @@ input[type="range"] {
 
 .select-wrapper {
     flex-shrink: 0;
+}
+
+.space-tooltip {
+    font-size: 0.7rem;
+    color: #999;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.space-tooltip code {
+    background: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #333;
 }

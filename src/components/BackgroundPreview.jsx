@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
-const BackgroundPreview = ({ processedImage, processing }) => {
+const BackgroundPreview = ({ processedImage, processing, lowOpacity }) => {
   const [show, setShow] = useState(false);
   const firstLoad = useRef(true);
   const [zoom, setZoom] = useState(1);
@@ -10,6 +10,14 @@ const BackgroundPreview = ({ processedImage, processing }) => {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (lowOpacity) {
+      setZoom(1);
+      setOffsetX(0);
+      setOffsetY(0);
+    }
+  }, [lowOpacity]);
 
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);

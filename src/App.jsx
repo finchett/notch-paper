@@ -53,13 +53,37 @@ function AppContent() {
     dispatch({ type: "SET_IMAGE", payload: image });
   }, [image, dispatch]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        dispatch({ type: "SET_LOW_OPACITY", payload: true });
+      }
+    };
+    const handleKeyUp = (e) => {
+      if (e.code === "Space") {
+        dispatch({ type: "SET_LOW_OPACITY", payload: false });
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keyup", handleKeyUp);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [dispatch]);
+
   return (
     <>
       <div
         className="app"
         ref={appRef}
         onMouseDown={handleMouseDown}
-        style={{ cursor: dragging ? "grabbing" : "grab" }}
+        style={{
+          cursor: dragging ? "grabbing" : "grab",
+          opacity: state.lowOpacity ? 0 : 1,
+          filter: state.lowOpacity ? "blur(10px)" : "none",
+        }}
       >
         <div className="main-layout">
           <Controls />
@@ -76,6 +100,7 @@ function AppContent() {
       <BackgroundPreview
         processedImage={processedImage}
         processing={processing}
+        lowOpacity={state.lowOpacity}
       />
     </>
   );

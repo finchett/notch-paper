@@ -24,6 +24,7 @@ const initialState = {
   cornerRadius: 0,
   squircle: false,
   image: null,
+  lowOpacity: false,
 };
 
 // Reducer function to handle state updates
@@ -57,6 +58,8 @@ function appReducer(state, action) {
       return { ...state, squircle: action.payload };
     case "SET_IMAGE":
       return { ...state, image: action.payload };
+    case "SET_LOW_OPACITY":
+      return { ...state, lowOpacity: action.payload };
     default:
       return state;
   }

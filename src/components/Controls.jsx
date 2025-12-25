@@ -327,6 +327,9 @@ const Controls = () => {
           </div>
         </div>
       )}
+      <small className="space-tooltip">
+        Hold <code>space</code> to focus
+      </small>
     </div>
   );
 };
