@@ -426,7 +426,9 @@ input[type="range"] {
     will-change: transform;
     cursor: grab;
     user-select: none;
-    transition: all 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        filter 0.5s ease;
 }
 
 .processed-image.dragging {

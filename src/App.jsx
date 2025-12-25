@@ -80,7 +80,7 @@ function AppContent() {
         ref={appRef}
         onMouseDown={handleMouseDown}
         style={{
-          cursor: dragging ? "grabbing" : "grab",
+          cursor: state.lowOpacity ? "none" : dragging ? "grabbing" : "grab",
           opacity: state.lowOpacity ? 0 : 1,
           filter: state.lowOpacity ? "blur(10px)" : "none",
         }}

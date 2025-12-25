@@ -95,6 +95,7 @@ const BackgroundPreview = ({ processedImage, processing, lowOpacity }) => {
       ref={containerRef}
       className={`background-preview ${show ? "visible" : ""} ${isDragging ? "dragging" : ""}`}
       onMouseDown={handleMouseDown}
+      style={{ cursor: lowOpacity ? "none" : isDragging ? "grabbing" : "grab" }}
     >
       <img
         src={processedImage}
