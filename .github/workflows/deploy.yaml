@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allows pushing to branches like gh-pages
+      pages: write # Allows deploying to GitHub Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
