@@ -85,7 +85,10 @@ const Controls = () => {
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
       };
-    } else if (dropdownRef.current && advancedSection) {
+    } else if (
+      (dropdownRef.current && advancedSection) ||
+      (dropdownRef.current && !state.advancedOpen)
+    ) {
       // Start close animation
       dropdownRef.current.style.opacity = "0";
       dropdownRef.current.style.transform = "scale(0.9)";
@@ -160,9 +163,10 @@ const Controls = () => {
             <select
               value={state.bgMode}
               disabled={!state.image}
-              onChange={(e) =>
-                dispatch({ type: "SET_BG_MODE", payload: e.target.value })
-              }
+              onChange={(e) => {
+                dispatch({ type: "SET_BG_MODE", payload: e.target.value });
+                dispatch({ type: "SET_ADVANCED_OPEN", payload: false });
+              }}
             >
               <option value="Stretch">Stretch</option>
               <option value="Center">Center</option>
@@ -186,7 +190,7 @@ const Controls = () => {
           )}
         </div>
       </div>
-      {state.bgMode === "Center" && (
+      {(state.bgMode === "Center" || dropdownRef) && (
         <div className="advanced-section">
           <div ref={dropdownRef} className="advanced-content">
             <div
