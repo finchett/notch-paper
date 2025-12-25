@@ -2,6 +2,8 @@
 
 A simple web app for Mac users to create wallpapers that hide the notch with a black bar and add rounded corners.
 
+Try it out live: [Notch Paper](https://finchett.github.io/notch-paper/)
+
 ![Interface](sample.png)
 
 ## Example
