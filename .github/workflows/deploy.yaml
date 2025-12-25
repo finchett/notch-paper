@@ -30,6 +30,8 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          VITE_GA_ID: ${{ secrets.GA_ID }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
