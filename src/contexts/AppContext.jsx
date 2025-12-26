@@ -12,7 +12,7 @@ const initialState = {
     'MacBook Pro 16"': { width: 3456, height: 2234 },
     'MacBook Air 15"': { width: 2880, height: 1864 },
   },
-  barHeight: 74,
+  barHeight: 64,
   bgMode: "Center",
   shadowColor: "#000000",
   shadowBlur: 10,

@@ -6,8 +6,8 @@ const Controls = () => {
   const dropdownRef = useRef();
 
   const barHeightOptions = {
-    "Menu Bar (74px)": 74,
-    "Notch (64px)": 64,
+    "Menu Bar (M1 Pro 74px)": 74,
+    "Notch (M2+ 64px)": 64,
   };
 
   useEffect(() => {
